@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components">
+	<ui:composition template="WEB-INF/template/template.xhtml">
+		<ui:define name="title">Northwind customers!</ui:define>
+		<ui:define name="header">
+			<h:outputLink value="index.xhtml">Home</h:outputLink>
+			<h3>Customers</h3>
+		</ui:define>
+		<ui:define name="content">
+			<h:form>
+				<style type="text/css">
+					/* Important required because row */
+					.ui-datatable-odd {
+						background-color:lightgray !important;
+						background-position-y: -1400px; /* IE7 hack */
+					}
+				</style>
+				<ace:dataTable id="customer"
+					value="#{customerBean.customers}"
+					var="customer"
+					paginator="true"
+					paginatorPosition="bottom"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {CurrentPageReport}"
+					rowsPerPageTemplate="5,10,20,30"
+					rows="10"
+					rowIndexVar="row">
+					<ace:column headerText="Row #">
+						<h:outputText value="#{row}" />
+					</ace:column>
+					<ace:column headerText="Id">
+						<h:outputText value="#{customer.id}" />
+					</ace:column>
+					<ace:column headerText="Company name">
+						<h:outputText value="#{customer.companyName}" />
+					</ace:column>
+					<ace:column headerText="Contact name">
+						<h:outputText value="#{customer.contactName}" />
+					</ace:column>
+					<ace:column headerText="Contact title">
+						<h:outputText value="#{customer.contactTitle}" />
+					</ace:column>
+					<ace:column headerText="Address">
+						<h:outputText value="#{customer.address}" />
+					</ace:column>
+					<ace:column headerText="City">
+						<h:outputText value="#{customer.city}" />
+					</ace:column>
+					<ace:column headerText="Region">
+						<h:outputText value="#{customer.region}" />
+					</ace:column>
+					<ace:column headerText="Postal code">
+						<h:outputText value="#{customer.postalCode}" />
+					</ace:column>
+					<ace:column headerText="Country">
+						<h:outputText value="#{customer.country}" />
+					</ace:column>
+					<ace:column headerText="Phone">
+						<h:outputText value="#{customer.phone}" />
+					</ace:column>
+					<ace:column headerText="Fax">
+						<h:outputText value="#{customer.fax}" />
+					</ace:column>
+				</ace:dataTable>
+			</h:form>
+		</ui:define>
+		<ui:define name="footer">Footer</ui:define>
+	</ui:composition>
+</html> 

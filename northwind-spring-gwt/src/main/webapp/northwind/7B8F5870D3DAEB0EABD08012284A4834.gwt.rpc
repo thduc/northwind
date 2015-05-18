@@ -1,0 +1,54 @@
+@FinalFields, false
+[B, true, true, false, false, [B/3308590456, 3308590456
+ch.duc.northwind.domain.Category, true, true, false, false, ch.duc.northwind.domain.Category/2179682150, 2179682150
+@ClientFields,ch.duc.northwind.domain.Category,id,name,description,picture,products
+ch.duc.northwind.domain.Customer, true, true, false, false, ch.duc.northwind.domain.Customer/2523937332, 2523937332
+@ClientFields,ch.duc.northwind.domain.Customer,id,address,city,companyName,contactName,contactTitle,country,fax,phone,postalCode,region,customerDemographics,orders
+ch.duc.northwind.domain.CustomerDemographic, true, true, false, false, ch.duc.northwind.domain.CustomerDemographic/4287542278, 4287542278
+@ClientFields,ch.duc.northwind.domain.CustomerDemographic,customerTypeId,customerDescription,customers
+[Lch.duc.northwind.domain.CustomerDemographic;, true, true, false, false, [Lch.duc.northwind.domain.CustomerDemographic;/1582790858, 1582790858
+[Lch.duc.northwind.domain.Customer;, true, true, false, false, [Lch.duc.northwind.domain.Customer;/3938613042, 3938613042
+ch.duc.northwind.domain.Employee, true, true, false, false, ch.duc.northwind.domain.Employee/1782239578, 1782239578
+@ClientFields,ch.duc.northwind.domain.Employee,id,address,birthDate,city,country,extension,firstName,hireDate,homePhone,lastName,notes,photo,photoPath,postalCode,region,title,titleOfCourtesy,boss,employees,territories,orders
+[Lch.duc.northwind.domain.Employee;, true, true, false, false, [Lch.duc.northwind.domain.Employee;/1174729788, 1174729788
+ch.duc.northwind.domain.Order, true, true, false, false, ch.duc.northwind.domain.Order/568479066, 568479066
+@ClientFields,ch.duc.northwind.domain.Order,id,freight,orderDate,requiredDate,shipAddress,shipCity,shipCountry,shipName,shippedDate,shipPostalCode,shipRegion,orderDetails,customer,employee,shipper
+ch.duc.northwind.domain.OrderDetail, true, true, false, false, ch.duc.northwind.domain.OrderDetail/3463173262, 3463173262
+@ClientFields,ch.duc.northwind.domain.OrderDetail,id,discount,quantity,unitPrice,order,product
+ch.duc.northwind.domain.OrderDetailPK, true, true, false, false, ch.duc.northwind.domain.OrderDetailPK/1871968782, 1871968782
+[Lch.duc.northwind.domain.OrderDetail;, true, true, false, false, [Lch.duc.northwind.domain.OrderDetail;/3578695669, 3578695669
+[Lch.duc.northwind.domain.Order;, true, true, false, false, [Lch.duc.northwind.domain.Order;/2640459110, 2640459110
+ch.duc.northwind.domain.Product, true, true, false, false, ch.duc.northwind.domain.Product/1992501842, 1992501842
+@ClientFields,ch.duc.northwind.domain.Product,id,discontinued,Name,quantityPerUnit,reorderLevel,unitPrice,unitsInStock,unitsOnOrder,orderDetails,category,supplier
+[Lch.duc.northwind.domain.Product;, true, true, false, false, [Lch.duc.northwind.domain.Product;/3172356620, 3172356620
+ch.duc.northwind.domain.Region, true, true, false, false, ch.duc.northwind.domain.Region/3432147039, 3432147039
+@ClientFields,ch.duc.northwind.domain.Region,id,description,territories
+ch.duc.northwind.domain.Shipper, true, true, false, false, ch.duc.northwind.domain.Shipper/4265692468, 4265692468
+@ClientFields,ch.duc.northwind.domain.Shipper,id,companyName,phone,orders
+ch.duc.northwind.domain.Supplier, true, true, false, false, ch.duc.northwind.domain.Supplier/1348642401, 1348642401
+@ClientFields,ch.duc.northwind.domain.Supplier,id,address,city,companyname,contactname,contacttitle,country,fax,homepage,phone,postalcode,region,products
+ch.duc.northwind.domain.Territory, true, true, false, false, ch.duc.northwind.domain.Territory/3015269248, 3015269248
+@ClientFields,ch.duc.northwind.domain.Territory,id,description,employees,region
+[Lch.duc.northwind.domain.Territory;, true, true, false, false, [Lch.duc.northwind.domain.Territory;/112627190, 112627190
+ch.duc.northwind.spring.gwt.client.CustomerService, false, false, false, false, _, 2758461189
+com.google.gwt.i18n.shared.impl.DateRecord, true, true, false, false, com.google.gwt.i18n.shared.impl.DateRecord/3173882066, 3173882066
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException, true, true, true, true, com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException/3936916533, 3936916533
+com.google.gwt.user.client.rpc.RpcTokenException, true, true, false, false, com.google.gwt.user.client.rpc.RpcTokenException/2345075298, 2345075298
+com.google.gwt.user.client.rpc.XsrfToken, false, false, true, true, com.google.gwt.user.client.rpc.XsrfToken/4254043109, 4254043109
+java.lang.Exception, true, false, true, false, java.lang.Exception/1920171873, 1920171873
+java.lang.Integer, true, true, false, false, java.lang.Integer/3438268394, 3438268394
+java.lang.Number, true, false, false, false, java.lang.Number/300033342, 300033342
+java.lang.RuntimeException, true, false, true, false, java.lang.RuntimeException/515124647, 515124647
+java.lang.String, true, true, true, true, java.lang.String/2004016611, 2004016611
+java.lang.Throwable, true, false, true, false, java.lang.Throwable/2953622131, 2953622131
+java.sql.Date, true, true, false, false, java.sql.Date/730999118, 730999118
+java.sql.Time, true, true, false, false, java.sql.Time/1816797103, 1816797103
+java.sql.Timestamp, true, true, false, false, java.sql.Timestamp/3040052672, 3040052672
+java.util.ArrayList, true, true, false, false, java.util.ArrayList/4159755760, 4159755760
+java.util.Arrays$ArrayList, true, true, false, false, java.util.Arrays$ArrayList/2507071751, 2507071751
+java.util.Collections$EmptyList, true, true, false, false, java.util.Collections$EmptyList/4157118744, 4157118744
+java.util.Collections$SingletonList, true, true, false, false, java.util.Collections$SingletonList/1586180994, 1586180994
+java.util.Date, true, true, false, false, java.util.Date/3385151746, 3385151746
+java.util.LinkedList, true, true, false, false, java.util.LinkedList/3953877921, 3953877921
+java.util.Stack, true, true, false, false, java.util.Stack/1346942793, 1346942793
+java.util.Vector, true, true, false, false, java.util.Vector/3057315478, 3057315478

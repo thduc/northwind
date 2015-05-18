@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>northwind-spring-gwt</display-name>
+
+	<!-- - Servlet that dispatches request to registered handlers (Controller implementations). -->
+	<servlet>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/gwt-config.xml, /WEB-INF/persistence-beans.xml, /WEB-INF/domain-beans.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<url-pattern>/northwind/rpc/*</url-pattern>
+	</servlet-mapping>
+
+  <!-- Servlets -->
+<!-- 
+  <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>ch.duc.northwind.spring.gwt.server.GreetingServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/northwind/greet</url-pattern>
+  </servlet-mapping>
+ -->
+
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>northwind.html</welcome-file>
+  </welcome-file-list>
+</web-app>

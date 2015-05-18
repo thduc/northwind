@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="northwind">
+  <!-- Inherit our applications main module.                      -->
+  <inherits name='ch.duc.northwind.spring.gwt.northwind' />
+
+  <!-- Specify the path to any remote services.                   -->
+  <servlet path="/northwind/greet" class="ch.duc.northwind.spring.gwt.server.GreetingServiceImpl" />
+
+</module>

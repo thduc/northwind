@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:composition template="WEB-INF/template/template.xhtml">
+		<ui:define name="title">Northwind customers!</ui:define>
+		<ui:define name="header">
+			<h:outputLink value="index.xhtml">Home</h:outputLink>
+			<h3>Customers</h3>
+		</ui:define>
+		<ui:define name="content">
+			<h:form id="form">
+				<p:dataTable id="customers" var="customer" value="#{lazyCustomerBean.customerModel}" rows="10"
+					paginator="true"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,20,50,100"
+					selectionMode="single" selection="#{lazyCustomerBean.selectedCustomer}" lazy="true">
+					<p:ajax event="rowSelect" listener="#{lazyCustomerBean.onRowSelect}" update=":form:customerDetail" oncomplete="PF('customerDialog').show()" />
+				    <f:facet name="header">
+				        List of Customers
+				 
+				        <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" />
+				        <p:columnToggler datasource="customers" trigger="toggler" />
+				    </f:facet>
+					<p:column headerText="Id">
+						<h:outputText value="#{customer.id}" />
+					</p:column>
+					<p:column headerText="Company name">
+						<h:outputText value="#{customer.companyName}" />
+					</p:column>
+					<p:column headerText="Contact name">
+						<h:outputText value="#{customer.contactName}" />
+					</p:column>
+					<p:column headerText="Contact title">
+						<h:outputText value="#{customer.contactTitle}" />
+					</p:column>
+					<p:column headerText="Address">
+						<h:outputText value="#{customer.address}" />
+					</p:column>
+					<p:column headerText="City">
+						<h:outputText value="#{customer.city}" />
+					</p:column>
+					<p:column headerText="Region">
+						<h:outputText value="#{customer.region}" />
+					</p:column>
+					<p:column headerText="Postal code">
+						<h:outputText value="#{customer.postalCode}" />
+					</p:column>
+					<p:column headerText="Country">
+						<h:outputText value="#{customer.country}" />
+					</p:column>
+					<p:column headerText="Phone">
+						<h:outputText value="#{customer.phone}" />
+					</p:column>
+					<p:column headerText="Fax">
+						<h:outputText value="#{customer.fax}" />
+					</p:column>
+				</p:dataTable>
+				
+			    <p:dialog header="Customer Detail" widgetVar="customerDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+		        <p:outputPanel id="customerDetail" style="text-align:center;">
+		            <p:panelGrid  columns="2" rendered="#{not empty lazyCustomerBean.selectedCustomer}" columnClasses="label,value">
+		                <f:facet name="header">
+		                    Selected customer: <h:outputText value="#{lazyCustomerBean.selectedCustomer.companyName}" /> 
+		                </f:facet>
+		 
+		                <h:outputText value="Id" />
+		                <h:outputText value="#{lazyCustomerBean.selectedCustomer.id}" />
+		 
+		                <h:outputText value="Company Name" />
+		                <h:outputText value="#{lazyCustomerBean.selectedCustomer.companyName}" />
+		            </p:panelGrid>
+		        </p:outputPanel>
+		    	</p:dialog>
+			</h:form>
+		</ui:define>
+		<ui:define name="footer">Footer</ui:define>
+	</ui:composition>
+</html> 

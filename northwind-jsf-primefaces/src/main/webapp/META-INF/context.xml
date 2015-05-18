@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!-- Marty Hall: my changes vs. the standard version from Apache are prefixed
+     with comments starting with "Marty Hall:".
+
+     There are three places that this context.xml file can go.
+     
+     1) In the META-INF folder of the individual Web application.
+        (This is WebContent/META-INF/ in Eclipse projects.)
+        This is usually the best option since it does not change
+        the defaults for other Web apps.
+        
+     2) If running Tomcat from within Eclipse, context.xml can be
+        found in your Eclipse workspace in Servers/Tomcat v7.0 Server/ or
+        Servers/Tomcat v8.0 Server/. This provides defaults for all apps in 
+        your workspace that are deployed with this server. A context.xml
+        in the META-INF of the app overrides the defaults here.
+        
+     3) If running Tomcat from the desktop, context.xml goes in
+        tomcat-install-dir/conf/. Again, this provides defaults for all apps in 
+        that are deployed with this server, and as above, a context.xml
+        in the META-INF of the app overrides the defaults here.
+ -->
+     
+<!-- The contents of this file will be loaded for each web application -->
+
+<!-- Marty Hall: Changed <Context> to <Context reloadable="true">.
+     This enables servlet reloading, so that WEB-INF/classes and WEB-INF/lib 
+     are monitored for changes. This lets you redeploy .class files or .jar 
+     files without restarting Tomcat. This is useful during application 
+     development, but servlet reloading slows things down for deployed apps. 
+     Disable it for deployment environments!
+     
+     This and the other changes for app
+     development (not deployment!) are discussed in
+     http://www.coreservlets.com/Apache-Tomcat-Tutorial/.
+-->
+
+<Context reloadable="true">
+
+    <!-- Default set of monitored resources -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    
+    <!-- Marty Hall: added faces-config.xml to simplify JSF development.
+         Changes to any files listed in WatchedResource cause Tomcat 
+         to automatically restart the Web app. 
+    -->
+    <WatchedResource>WEB-INF/faces-config.xml</WatchedResource>
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+
+    <!-- Uncomment this to enable Comet connection tacking (provides events
+         on session expiration as well as webapp lifecycle) -->
+    <!--
+    <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
+    -->
+
+<!-- Marty Hall: added the Resource entry below to support CDI via Weld, 
+     following the instructions at 
+     http://jsf2.com/using-cdi-and-jsf-2.2-faces-flow-in-tomcat/
+     To make CDI work, you also need to add the weld-servlet.jar to WEB-INF/lib, and
+     to add a resource-env-ref entry in WEB-INF/web.xml (again, described at the URL above).
+     
+     CDI is needed for the JSF 2.2 Faces Flow examples given in the JSF 2 tutorial at
+     http://www.coreservlets.com/JSF-Tutorial/jsf2/
+-->
+   <Resource name="BeanManager"
+      auth="Container"
+      type="javax.enterprise.inject.spi.BeanManager"
+      factory="org.jboss.weld.resources.ManagerObjectFactory"/>
+
+</Context>
