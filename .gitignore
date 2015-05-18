@@ -9,6 +9,7 @@
 **/buildNumber.properties
 
 # Eclipse
+**/.metadata/
 **/.settings/
 **/.cache
 **/.classpath
@@ -16,3 +17,7 @@
 
 # Mac
 **/.DS_Store
+
+# Spring
+**/.springBeans
+
