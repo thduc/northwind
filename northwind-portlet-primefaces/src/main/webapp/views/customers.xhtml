@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<f:view
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+	<ui:composition template="/template/template.xhtml">
+		<ui:define name="header">
+			<h:outputLink value="#{facesContext.externalContext.requestContextPath}/views/index.xhtml">
+				<f:param name="javax.portlet.faces.ViewLink" value="true"/>
+				Home
+			</h:outputLink>
+			<h3>Customers</h3>
+		</ui:define>
+		<ui:define name="content">
+			<h:form>
+				<p:dataTable id="customers" var="customer" value="#{customerBean.customers}" rows="10" paginator="true" 
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+				    <f:facet name="header">
+				        List of Customers
+				        <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" />
+				        <p:columnToggler datasource="customers" trigger="toggler" />
+				    </f:facet>
+					<p:column headerText="Id">
+						<h:outputText value="#{customer.id}" />
+					</p:column>
+					<p:column headerText="Company name">
+						<h:outputText value="#{customer.companyName}" />
+					</p:column>
+					<p:column headerText="Contact name">
+						<h:outputText value="#{customer.contactName}" />
+					</p:column>
+					<p:column headerText="Contact title">
+						<h:outputText value="#{customer.contactTitle}" />
+					</p:column>
+					<p:column headerText="Address">
+						<h:outputText value="#{customer.address}" />
+					</p:column>
+					<p:column headerText="City">
+						<h:outputText value="#{customer.city}" />
+					</p:column>
+					<p:column headerText="Region">
+						<h:outputText value="#{customer.region}" />
+					</p:column>
+					<p:column headerText="Postal code">
+						<h:outputText value="#{customer.postalCode}" />
+					</p:column>
+					<p:column headerText="Country">
+						<h:outputText value="#{customer.country}" />
+					</p:column>
+					<p:column headerText="Phone">
+						<h:outputText value="#{customer.phone}" />
+					</p:column>
+					<p:column headerText="Fax">
+						<h:outputText value="#{customer.fax}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+	    </ui:define>
+	</ui:composition>
+</f:view>

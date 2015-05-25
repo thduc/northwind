@@ -35,6 +35,7 @@
 		<module>northwind-domain</module>
 		<module>northwind-jsf-icefaces</module>
 		<module>northwind-jsf-primefaces</module>
+		<module>northwind-portlet-primefaces</module>
 		<module>northwind-spring-gwt</module>
 		<module>northwind-spring-web</module>
 	</modules>

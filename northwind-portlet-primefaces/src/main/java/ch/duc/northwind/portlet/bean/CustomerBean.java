@@ -1,4 +1,4 @@
-package ch.duc.northwind.bean;
+package ch.duc.northwind.portlet.bean;
 
 import java.util.List;
 

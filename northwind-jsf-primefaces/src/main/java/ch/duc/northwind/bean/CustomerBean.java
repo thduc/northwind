@@ -17,6 +17,8 @@ public class CustomerBean {
 	@Inject
 	private CustomerService customerService;
 	
+	private List<Customer> customers;
+	
 	@PostConstruct
 	public void init() {
 /*
@@ -38,6 +40,18 @@ public class CustomerBean {
 	}
 	
 	public List<Customer> getCustomers() {
-		return customerService.findCustomers(0, -1);
+		if (customers == null) {
+			loadCustomers();
+		}
+		return customers;
+	}
+	
+	
+	// http://stackoverflow.com/questions/2786834/between-a-jsf-page-and-a-managed-bean-why-the-getter-method-is-called-twice
+	// http://stackoverflow.com/questions/2090033/why-jsf-calls-getters-multiple-times
+	// http://stackoverflow.com/questions/4281261/why-is-the-getter-called-so-many-times-by-the-rendered-attribute
+	// http://balusc.blogspot.ch/2006/09/debug-jsf-lifecycle.html
+	private void loadCustomers() {
+		customers = customerService.findCustomers(0, -1);
 	}
 }
