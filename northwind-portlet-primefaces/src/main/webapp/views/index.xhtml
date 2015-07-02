@@ -8,10 +8,6 @@
 	<ui:composition template="/template/template.xhtml">
 		<ui:define name="header">Header come here!</ui:define>
 		<ui:define name="content">
-			<h:outputLink value="#{facesContext.externalContext.requestContextPath}/views/cars.xhtml">
-				<f:param name="javax.portlet.faces.ViewLink" value="true"/>
-				Cars
-			</h:outputLink> | 
 			<h:outputLink value="#{facesContext.externalContext.requestContextPath}/views/customers.xhtml">
 				<f:param name="javax.portlet.faces.ViewLink" value="true"/>
 				Customers
